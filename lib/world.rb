@@ -23,6 +23,18 @@ class World
     "#<World (generation #{generation})>"
   end
 
+  def to_s
+    cells.map { |row| row.join }.join("\n")
+  end
+
+  def each_cell
+    cells.each_with_index do |row, y|
+      row.each_with_index do |cell, x|
+        yield(cell, x, y)
+      end
+    end
+  end
+
   private
 
   def map_cells
@@ -43,8 +55,10 @@ class World
 
   def [](x, y)
     return nil if x < 0 || y < 0 # prevent rear indexing
-    return nil if x >= cells.size || y >= cells[0].size
-    cells[y][x]
+    # return nil if x >= cells.size || y >= cells[0].size # prevent index out of bounds
+
+    # TODO: FIX THIS ATROCITY AND TEST WITH EMPTY ARRAY
+    cells[y][x] rescue nil
   end
 
 end

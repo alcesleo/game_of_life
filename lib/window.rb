@@ -1,34 +1,52 @@
 require 'hasu'
+require './lib/world'
 
 class GameOfLife < Hasu::Window
+  attr_reader :width, :height, :world
+
   def initialize
+    @width, @height = 1000, 800
     fullscreen = false
-    @width, @height = 640, 480
-    super(640, 480, fullscreen)
+    super(width, height, fullscreen)
+    self.caption = "Conway's Game of Life"
 
-    @world = World.new(Array.new(height) { Array.new(width) { Cell.random } })
-
-    @background_color = Gosu::Color.new(0xf0f0f0f0)
+    @background_color = Gosu::Color.new(0xfff0f0f0)
+    @cell_color = Gosu::Color.new(0xff666666)
+    @cell_size = 5
+    @world = World.new(Array.new(height / @cell_size) { Array.new(width / @cell_size) { Cell.random(10) } } )
   end
 
   def needs_cursor?; true; end
 
   def update
-  end
-
-  def reset
+    @world = @world.next
   end
 
   def draw
-    clear
+    draw_background
+    draw_world
   end
 
   private
-  def clear
-    draw_quad(0,   0,   @background_color,
-              640, 0,   @background_color,
-              640, 480, @background_color,
-              0,   480, @background_color)
+
+  def draw_block(top, left, width, height, color)
+    draw_quad(left,         top,          color,
+              left + width, top,          color,
+              left,         top + height, color,
+              left + width, top + height, color)
+  end
+  def draw_background
+    draw_block(0, 0, @width, @height, @background_color)
+  end
+
+  def draw_cell(x, y)
+    draw_block(y * @cell_size, x * @cell_size, @cell_size, @cell_size, @cell_color)
+  end
+
+  def draw_world
+    world.each_cell do |cell, x, y|
+      draw_cell(x, y) if cell.alive?
+    end
   end
 
   

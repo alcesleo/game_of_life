@@ -11,6 +11,10 @@ class Cell
   def self.dead
     new(false)
   end
+  
+  def self.random(chance_to_live=50)
+    new(rand < chance_to_live / 100.0)
+  end
 
   def alive?
     @alive
