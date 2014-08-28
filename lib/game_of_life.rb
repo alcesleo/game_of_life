@@ -16,5 +16,3 @@ class GameOfLife
     @world = World.new(Array.new(height) { Array.new(width) { Cell.spawn } } )
   end
 end
-
-GameOfLife.new.run

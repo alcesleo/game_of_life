@@ -8,9 +8,16 @@ brew install sdl2 libogg libvorbis
 bundle install
 ```
 
-## Running
+## Usage
 
-    ruby lib/game_of_life.rb
+```bash
+# start game of life
+rake run
+
+# run the tests
+rake spec
+```
+
 
 ## Rules
 
