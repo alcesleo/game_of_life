@@ -28,6 +28,14 @@ describe World do
     end
   end
 
+  it "reports width" do
+    expect(subject.width).to eq 5
+  end
+
+  it "reports height" do
+    expect(subject.height).to eq 4
+  end
+
   context "#number_of_alive_neighbors" do
     it "counts the neighbors of a cell in the middle" do
       expect(subject.number_of_alive_neighbors(1, 1)).to be 3

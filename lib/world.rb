@@ -35,6 +35,14 @@ class World
     end
   end
 
+  def width
+    cells[0].size
+  end
+
+  def height
+    cells.size
+  end
+
   private
 
   def map_cells
@@ -55,7 +63,7 @@ class World
 
   def cell_at(x, y)
     return nil if x < 0 || y < 0 # prevent rear indexing
-    return nil if x >= cells[0].size || y >= cells.size # prevent index out of bounds
+    return nil if x >= width || y >= height # prevent index out of bounds
 
     cells[y][x]
   end
