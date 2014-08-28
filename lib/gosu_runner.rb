@@ -7,6 +7,8 @@ class GosuRunner < Gosu::Window
   def initialize(world, evolutions_per_second)
     @world = world
     @cell_size = 10
+
+    # calculate window size to match world
     @width = @world.width * @cell_size
     @height = @world.height * @cell_size
 
