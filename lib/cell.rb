@@ -36,7 +36,7 @@ class Cell
     alive? ? 'o' : ' '
   end
 
-  def natural_selection(number_of_neighbors)
+  def evolve(number_of_neighbors)
     Cell.new(
       if alive?
         number_of_neighbors.between?(2, 3)

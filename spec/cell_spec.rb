@@ -23,26 +23,26 @@ describe Cell do
     expect(Cell.dead.inspect).to eq "#<Cell (dead)>"
   end
 
-  context "#natural_selection" do
+  context "#evolve" do
     it 'Rule #1: dies of under-population' do
-      expect(Cell.alive.natural_selection(1)).to be_dead
-      expect(Cell.alive.natural_selection(0)).to be_dead
+      expect(Cell.alive.evolve(1)).to be_dead
+      expect(Cell.alive.evolve(0)).to be_dead
     end
 
     it 'Rule #2: survives good conditions' do
-      expect(Cell.alive.natural_selection(2)).to be_alive
-      expect(Cell.alive.natural_selection(3)).to be_alive
+      expect(Cell.alive.evolve(2)).to be_alive
+      expect(Cell.alive.evolve(3)).to be_alive
     end
 
     it 'Rule #3: dies of overcrowding' do
-      expect(Cell.alive.natural_selection(4)).to be_dead
-      expect(Cell.alive.natural_selection(8)).to be_dead
+      expect(Cell.alive.evolve(4)).to be_dead
+      expect(Cell.alive.evolve(8)).to be_dead
     end
 
     it 'Rule #4: reproduces under good conditions' do
-      expect(Cell.dead.natural_selection(3)).to be_alive
-      expect(Cell.dead.natural_selection(4)).to be_dead
-      expect(Cell.dead.natural_selection(2)).to be_dead
+      expect(Cell.dead.evolve(3)).to be_alive
+      expect(Cell.dead.evolve(4)).to be_dead
+      expect(Cell.dead.evolve(2)).to be_dead
     end
 
   end

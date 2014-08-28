@@ -10,7 +10,7 @@ class World
   def next
     new_cells = map_cells do |cell, x, y|
       count = number_of_alive_neighbors(x, y)
-      cell.natural_selection(count)
+      cell.evolve(count)
     end
     World.new(new_cells, self.generation + 1)
   end
