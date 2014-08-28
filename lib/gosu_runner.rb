@@ -9,11 +9,13 @@ class GosuRunner < Gosu::Window
     @cell_size = 10
 
     # calculate window size to match world
-    @width = @world.width * @cell_size
-    @height = @world.height * @cell_size
+    @width      = @world.width  * @cell_size
+    @height     = @world.height * @cell_size
+    fullscreen  = false
+    delay_in_ms = 1000 / evolutions_per_second
 
-    fullscreen = false
-    super(@width, @height, fullscreen, 1000 / evolutions_per_second)
+    # launch the window
+    super(@width, @height, fullscreen, delay_in_ms)
     self.caption = "Conway's Game of Life"
 
     reset
