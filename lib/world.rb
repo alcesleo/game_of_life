@@ -1,5 +1,3 @@
-require './lib/cell'
-
 class World
   attr_reader :cells, :generation
 

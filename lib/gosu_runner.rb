@@ -1,5 +1,4 @@
 require 'hasu'
-require './lib/world'
 
 class GosuRunner < Gosu::Window
   prepend Hasu::Guard
