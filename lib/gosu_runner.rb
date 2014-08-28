@@ -20,6 +20,12 @@ class GosuRunner < Gosu::Window
     reset
   end
 
+  def run
+    show
+  end
+
+  private
+
   def needs_cursor?; true; end
 
   def reset
@@ -34,18 +40,19 @@ class GosuRunner < Gosu::Window
     @world = @world.next
   end
 
+  def button_down(key)
+    case key
+    when Gosu::KbQ
+      close
+    end
+  end
+
   def draw
     draw_background
     draw_grid
     draw_cells
     draw_counter
   end
-
-  def run
-    show
-  end
-
-  private
 
   def draw_background
     draw_rect(0, 0, @width, @height, @background_color)
