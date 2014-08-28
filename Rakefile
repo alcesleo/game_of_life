@@ -8,5 +8,5 @@ task :default => :spec
 
 task :run do
   require './lib/game_of_life'
-  GameOfLife.new.run
+  GameOfLife.new(runner: ColoredGosuRunner).run
 end
