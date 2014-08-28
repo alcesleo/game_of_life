@@ -25,13 +25,7 @@ class Cell
   end
 
   def evolve(number_of_neighbors)
-    Cell.new(
-      if alive?
-        number_of_neighbors.between?(2, 3)
-      else
-        number_of_neighbors == 3
-      end
-    )
+    Cell.new(survives?(number_of_neighbors))
   end
 
   def ==(other)
@@ -44,6 +38,15 @@ class Cell
 
   def to_s
     alive? ? 'o' : ' '
+  end
+
+  private
+  def survives?(number_of_neighbors)
+    if alive?
+      number_of_neighbors.between?(2, 3)
+    else
+      number_of_neighbors == 3
+    end
   end
 
 end
