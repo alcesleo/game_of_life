@@ -2,9 +2,11 @@
 
 ## Installation
 
-    # Gosu needs some native extensions
-    brew install sdl2 libogg libvorbis
-    bundle install
+```bash
+# Gosu needs some native extensions
+brew install sdl2 libogg libvorbis
+bundle install
+```
 
 ## Running
 
