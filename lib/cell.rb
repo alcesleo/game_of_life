@@ -11,9 +11,9 @@ class Cell
   def self.dead
     new(false)
   end
-  
-  def self.random(chance_to_live=50)
-    new(rand < chance_to_live / 100.0)
+
+  def self.spawn(survival_rate=50)
+    new(rand < survival_rate / 100.0)
   end
 
   def alive?
