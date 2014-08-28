@@ -9,10 +9,10 @@ describe World do
 
   let(:cells) {
     [
-      [dead, dead, dead, dead],
-      [dead, alive, alive, dead],
-      [dead, alive, alive, dead],
-      [dead, dead, dead, dead]
+      [dead, dead,  dead,  dead, dead],
+      [dead, alive, alive, dead, dead],
+      [dead, alive, alive, dead, alive],
+      [dead, dead,  dead,  dead, dead]
     ]
   }
 
@@ -38,13 +38,9 @@ describe World do
     end
 
     it "counts the neighbors of a cell at a high index corner" do
-      expect(subject.number_of_alive_neighbors(3, 3)).to be 1
+      expect(subject.number_of_alive_neighbors(4, 3)).to be 1
     end
 
-    # FIXME: this test is broken
-    xit "doesn't break when the grid is empty" do
-      expect(World.new([]).number_of_alive_neighbors(0, 2)).to eq 0
-    end
   end
 
   context "#next" do

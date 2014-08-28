@@ -47,18 +47,17 @@ class World
 
   def neighbors(x, y)
     [
-      self[x-1, y-1], self[x, y-1], self[x+1, y-1],
-      self[x-1, y],                 self[x+1, y],
-      self[x-1, y+1], self[x, y+1], self[x+1, y+1],
+      cell_at(x-1, y-1), cell_at(x, y-1), cell_at(x+1, y-1),
+      cell_at(x-1, y),                    cell_at(x+1, y),
+      cell_at(x-1, y+1), cell_at(x, y+1), cell_at(x+1, y+1),
     ].compact
   end
 
-  def [](x, y)
+  def cell_at(x, y)
     return nil if x < 0 || y < 0 # prevent rear indexing
-    # return nil if x >= cells.size || y >= cells[0].size # prevent index out of bounds
+    return nil if x >= cells[0].size || y >= cells.size # prevent index out of bounds
 
-    # TODO: FIX THIS ATROCITY AND TEST WITH EMPTY ARRAY
-    cells[y][x] rescue nil
+    cells[y][x]
   end
 
 end
