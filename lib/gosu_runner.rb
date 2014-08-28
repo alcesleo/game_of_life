@@ -1,14 +1,20 @@
 require 'hasu'
 require './lib/world'
 
-class GosuRenderer < Hasu::Window
-  # TODO: SORT THIS OUT
-  attr_reader :width, :height, :world
+class GosuRunner < Gosu::Window
+  prepend Hasu::Guard
 
-  def initialize
-    @width, @height, fullscreen, evolutions_per_second = 640, 480, false, 10
-    super(width, height, fullscreen, 1000 / evolutions_per_second)
+  def initialize(world, evolutions_per_second)
+    @world = world
+    @cell_size = 10
+    @width = @world.width * @cell_size
+    @height = @world.height * @cell_size
+
+    fullscreen = false
+    super(@width, @height, fullscreen, 1000 / evolutions_per_second)
     self.caption = "Conway's Game of Life"
+
+    reset
   end
 
   def needs_cursor?; true; end
@@ -18,16 +24,10 @@ class GosuRenderer < Hasu::Window
     @cell_color       = Gosu::Color.new(0xff666666)
     @grid_color       = Gosu::Color.new(0xffe0e0e0)
     @text_color       = Gosu::Color.new(0x99000000)
-
     @font             = Gosu::Font.new(self, "Arial", 24)
-    @cell_size = 10
-
-    # TODO: send to new
-    @world = World.new(Array.new(height / @cell_size) { Array.new(width / @cell_size) { Cell.spawn } } )
   end
 
   def update
-    # TODO: tick!
     @world = @world.next
   end
 
@@ -38,6 +38,10 @@ class GosuRenderer < Hasu::Window
     draw_counter
   end
 
+  def run
+    show
+  end
+
   private
 
   def draw_background
@@ -45,7 +49,7 @@ class GosuRenderer < Hasu::Window
   end
 
   def draw_cells
-    world.each_cell do |cell, x, y|
+    @world.each_cell do |cell, x, y|
       draw_cell(x, y) if cell.alive?
     end
   end
@@ -80,5 +84,3 @@ class GosuRenderer < Hasu::Window
   end
 
 end
-
-GosuRenderer.run
