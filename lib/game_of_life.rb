@@ -7,7 +7,7 @@ class GameOfLife
 
   attr_reader :world, :evolutions_per_second
 
-  def initialize(world = random_world(64, 48), evolutions_per_second = 10, runner = ColoredGosuRunner)
+  def initialize(world: random_world(64, 48), evolutions_per_second: 10, runner: GosuRunner)
     @world, @evolutions_per_second, @runner = world, evolutions_per_second, runner
   end
 
