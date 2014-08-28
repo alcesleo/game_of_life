@@ -6,6 +6,10 @@
     brew install sdl2 libogg libvorbis
     bundle install
 
+## Running
+
+    ruby lib/game_of_life.rb
+
 ## Rules
 
 The [Wikipedia page](http://en.wikipedia.org/wiki/Conway's_Game_of_Life) has lots of details and examples.
