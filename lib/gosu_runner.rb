@@ -57,8 +57,8 @@ class GosuRunner < Gosu::Window
     end
   end
 
-  def draw_cell(x, y)
-    draw_rect(y * @cell_size, x * @cell_size, @cell_size, @cell_size, @cell_color)
+  def draw_cell(x, y, cell_color = @cell_color)
+    draw_rect(y * @cell_size, x * @cell_size, @cell_size, @cell_size, cell_color)
   end
 
   def draw_counter
