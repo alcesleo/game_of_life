@@ -15,4 +15,5 @@ class GameOfLife
   def random_world(width, height)
     @world = World.new(Array.new(height) { Array.new(width) { Cell.spawn } } )
   end
+
 end
