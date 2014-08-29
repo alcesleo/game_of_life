@@ -9,7 +9,7 @@ class GameOfLifeWindow < Hasu::Window
   end
 
   def initialize(game = GameOfLife.new, evolutions_per_second = 10)
-    @game = game
+    @game      = game
     @cell_size = 10
 
     # calculate window size to match world

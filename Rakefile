@@ -8,5 +8,5 @@ task :default => :spec
 
 task :run do
   require './lib/game_of_life_window'
-  GameOfLifeWindow.run(GameOfLife.new)
+  GameOfLifeWindow.run
 end
