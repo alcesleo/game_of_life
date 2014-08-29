@@ -12,6 +12,7 @@ task :run do
 end
 
 task :colors do
-  require './lib/colors/colorized_game_of_life_window'
-  ColorizedGameOfLifeWindow.run
+  require './lib/themes/themed_game_of_life_window'
+  require './lib/themes/themes'
+  ThemedGameOfLifeWindow.run(theme: Theme::Deutschland)
 end
