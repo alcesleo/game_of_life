@@ -10,7 +10,7 @@ bundle install
 
 ## Usage
 
-Press `r` to reset the game and `q` to quit.
+Press `r` to reset the game, `t` to cycle themes and `q` to quit.
 
 ### Tasks
 

@@ -4,13 +4,14 @@ require './lib/themes/themes'
 class ThemedGameOfLifeWindow < GameOfLifeWindow
 
   def initialize(*args, theme: Theme::Focus)
+    @theme = theme
     @colorizer = theme.new
     super(*args)
   end
 
   private
   def draw_cell(x, y)
-    super(x, y, get_cell_color(x, y))
+    super(x, y, @colorizer.cell_color(world, x, y))
   end
 
   def styles
@@ -22,8 +23,21 @@ class ThemedGameOfLifeWindow < GameOfLifeWindow
     end
   end
 
-  def get_cell_color(x, y)
-    @colorizer.cell_color(world, x, y)
+  def cycle_themes
+    # get all theme classes
+    @themes ||= Theme.constants.map { |name| Theme.const_get(name) }
+    @theme = (@themes - [@theme]).first
+    @colorizer = @theme.new
+    styles
+  end
+
+  def button_down(key)
+    case key
+    when Gosu::KbT
+      cycle_themes
+    else
+      super
+    end
   end
 
 end

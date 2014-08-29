@@ -13,6 +13,5 @@ end
 
 task :colors do
   require './lib/themes/themed_game_of_life_window'
-  require './lib/themes/themes'
-  ThemedGameOfLifeWindow.run(theme: Theme::Deutschland)
+  ThemedGameOfLifeWindow.run
 end
