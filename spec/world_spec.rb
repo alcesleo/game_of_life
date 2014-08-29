@@ -3,7 +3,6 @@ require './lib/cell'
 
 describe World do
 
-  # TODO: Stub
   let(:alive) { Cell.alive }
   let(:dead)  { Cell.dead }
 
