@@ -7,6 +7,11 @@ end
 task :default => :spec
 
 task :run do
-  require './lib/colorized_game_of_life_window'
+  require './lib/game_of_life_window'
+  GameOfLifeWindow.run
+end
+
+task :colors do
+  require './lib/colors/colorized_game_of_life_window'
   ColorizedGameOfLifeWindow.run
 end

@@ -17,6 +17,7 @@ Press `r` to reset the game and `q` to quit.
 ```bash
 # start game of life
 rake run
+rake colors # colorized version
 
 # run the tests
 rake spec

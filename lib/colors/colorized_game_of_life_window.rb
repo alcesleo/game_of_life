@@ -1,9 +1,9 @@
 require './lib/game_of_life_window'
-require './lib/themes'
+require './lib/colors/themes'
 
 class ColorizedGameOfLifeWindow < GameOfLifeWindow
 
-  def initialize(*args, theme: Theme::Focus)
+  def initialize(*args, theme: Theme::Deutschland)
     @colorizer = theme.new
     super(*args)
   end
