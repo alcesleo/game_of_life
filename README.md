@@ -48,6 +48,8 @@ class MyAwesomeTheme
     Gosu::Color.new(0xffff0000)
   end
 end
+
+ColorizedGameOfLifeWindow.run(theme: MyAwesomeTheme)
 ```
 
 ## Rules
