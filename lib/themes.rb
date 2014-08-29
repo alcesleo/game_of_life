@@ -32,8 +32,9 @@ module Theme
     end
 
     def styles
-      super
-      @background_color = Gosu::Color.new(0xffbbffff)
+      {
+        background_color: Gosu::Color.new(0xffbbffff)
+      }
     end
 
     def cell_color(world, x, y)
