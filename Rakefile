@@ -7,6 +7,6 @@ end
 task :default => :spec
 
 task :run do
-  require './lib/game_of_life_window'
-  GameOfLifeWindow.run
+  require './lib/colorized_game_of_life_window'
+  ColorizedGameOfLifeWindow.run(theme: Theme::Focus)
 end

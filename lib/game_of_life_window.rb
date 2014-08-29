@@ -8,7 +8,7 @@ class GameOfLifeWindow < Hasu::Window
     game.world
   end
 
-  def initialize(game = GameOfLife.new, evolutions_per_second = 10)
+  def initialize(game = GameOfLife.new, evolutions_per_second: 10)
     @game      = game
     @cell_size = 10
 
@@ -22,7 +22,7 @@ class GameOfLifeWindow < Hasu::Window
     super(@width, @height, fullscreen, delay_in_ms)
     self.caption = "Conway's Game of Life"
 
-    colors
+    styles
   end
 
   private
@@ -33,7 +33,7 @@ class GameOfLifeWindow < Hasu::Window
     game.reset_world!
   end
 
-  def colors
+  def styles
     @background_color = Gosu::Color.new(0xfff0f0f0)
     @cell_color       = Gosu::Color.new(0xff666666)
     @grid_color       = Gosu::Color.new(0xffe0e0e0)
