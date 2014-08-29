@@ -4,9 +4,6 @@ Hasu.load './lib/game_of_life.rb'
 class GameOfLifeWindow < Hasu::Window
 
   attr_reader :game
-  def world
-    game.world
-  end
 
   def initialize(game = GameOfLife.new, evolutions_per_second: 10)
     @game      = game
@@ -23,6 +20,10 @@ class GameOfLifeWindow < Hasu::Window
     self.caption = "Conway's Game of Life"
 
     styles
+  end
+
+  def world
+    game.world
   end
 
   private
