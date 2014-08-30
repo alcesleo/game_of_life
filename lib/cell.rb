@@ -13,7 +13,7 @@ class Cell
   end
 
   def self.spawn(survival_rate=50)
-    new(survival_rate > rand(100))
+    new(rand(100) < survival_rate)
   end
 
   def alive?
