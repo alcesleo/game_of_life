@@ -1,5 +1,7 @@
 # Conway's Game Of Life
 
+![](screenshot.png)
+
 ## Installation
 
 ```bash
