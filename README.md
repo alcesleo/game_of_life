@@ -19,18 +19,10 @@ Press `r` to reset the game, `t` to cycle themes and `q` to quit.
 ```bash
 # start game of life
 rake run
-rake colors # colorized version
+rake run:colors
 
 # run the tests
 rake spec
-```
-
-```ruby
-# start the traditional game of life
-GameOfLifeWindow.run
-
-# start with a theme
-ColorizedGameOfLifeWindow.run(theme: Theme::Focus)
 ```
 
 ## Themes

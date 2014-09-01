@@ -11,7 +11,10 @@ task :run do
   GameOfLifeWindow.run
 end
 
-task :colors do
-  require './lib/themes/themed_game_of_life_window'
-  ThemedGameOfLifeWindow.run
+namespace :run do
+  task :colors do
+    require './lib/themes/themed_game_of_life_window'
+    ThemedGameOfLifeWindow.run
+  end
 end
+
