@@ -42,7 +42,7 @@ class MyAwesomeTheme
   end
 end
 
-ColorizedGameOfLifeWindow.run(theme: MyAwesomeTheme)
+ThemedGameOfLifeWindow.run(theme: MyAwesomeTheme)
 ```
 
 ## Rules
