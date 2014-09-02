@@ -33,10 +33,8 @@ You can create your own themes and pass into `ColorizedGameOfLifeWindow.run`
 # a theme with red cells on a black background
 class MyAwesomeTheme
   # set a black background
-  def styles
-    {
-      background_color: Gosu::Color.new(0xff000000)
-    }
+  def background_color
+    Gosu::Color.new(0xff000000)
   end
 
   def cell_color(world, x, y)

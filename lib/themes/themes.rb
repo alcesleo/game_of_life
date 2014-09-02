@@ -31,10 +31,8 @@ module Theme
       Gosu::Color.new(hex)
     end
 
-    def styles
-      {
-        background_color: Gosu::Color.new(0xffbbffff)
-      }
+    def background_color
+      Gosu::Color.new(0xffbbffff)
     end
 
     def cell_color(world, x, y)

@@ -19,11 +19,21 @@ class GameOfLifeWindow < Hasu::Window
     super(@width, @height, fullscreen, delay_in_ms)
     self.caption = "Conway's Game of Life"
 
-    styles
+    @grid_color = Gosu::Color.new(0xffe0e0e0)
+    @text_color = Gosu::Color.new(0x99000000)
+    @font       = Gosu::Font.new(self, "Arial", 24)
   end
 
   def world
     game.world
+  end
+
+  def background_color
+    Gosu::Color.new(0xfff0f0f0)
+  end
+
+  def cell_color(x, y)
+    Gosu::Color.new(0xff666666)
   end
 
   private
@@ -32,14 +42,6 @@ class GameOfLifeWindow < Hasu::Window
 
   def reset
     game.reset_world!
-  end
-
-  def styles
-    @background_color = Gosu::Color.new(0xfff0f0f0)
-    @cell_color       = Gosu::Color.new(0xff666666)
-    @grid_color       = Gosu::Color.new(0xffe0e0e0)
-    @text_color       = Gosu::Color.new(0x99000000)
-    @font             = Gosu::Font.new(self, "Arial", 24)
   end
 
   def update
@@ -61,7 +63,7 @@ class GameOfLifeWindow < Hasu::Window
   end
 
   def draw_background
-    draw_rect(0, 0, @width, @height, @background_color)
+    draw_rect(0, 0, @width, @height, background_color)
   end
 
   def draw_cells
@@ -70,8 +72,8 @@ class GameOfLifeWindow < Hasu::Window
     end
   end
 
-  def draw_cell(x, y, cell_color = @cell_color)
-    draw_rect(y * @cell_size, x * @cell_size, @cell_size, @cell_size, cell_color)
+  def draw_cell(x, y)
+    draw_rect(y * @cell_size, x * @cell_size, @cell_size, @cell_size, cell_color(x, y))
   end
 
   def draw_counter
