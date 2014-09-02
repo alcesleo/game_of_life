@@ -27,7 +27,7 @@ rake spec
 
 ## Themes
 
-You can create your own themes and pass into `ColorizedGameOfLifeWindow.run`
+You can create your own themes and pass into `ThemedGameOfLifeWindow.run`
 
 ```ruby
 # a theme with red cells on a black background
