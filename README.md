@@ -32,7 +32,6 @@ You can create your own themes and pass into `ThemedGameOfLifeWindow.run`
 ```ruby
 # a theme with red cells on a black background
 class MyAwesomeTheme
-  # set a black background
   def background_color
     Gosu::Color.new(0xff000000)
   end
