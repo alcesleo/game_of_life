@@ -5,6 +5,7 @@ GEM
     gosu (0.8.3)
     hasu (0.1.5)
       gosu
+    rake (10.3.2)
     rspec (3.0.0)
       rspec-core (~> 3.0.0)
       rspec-expectations (~> 3.0.0)
@@ -23,4 +24,5 @@ PLATFORMS
 
 DEPENDENCIES
   hasu (~> 0.1)
+  rake (~> 10.3)
   rspec (~> 3.0)
