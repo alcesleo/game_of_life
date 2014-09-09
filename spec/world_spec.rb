@@ -1,10 +1,9 @@
 require './lib/world'
-require './lib/cell'
 
 describe World do
 
-  let(:alive) { Cell.alive }
-  let(:dead)  { Cell.dead }
+  let(:alive) { double(:alive? => true) }
+  let(:dead)  { double(:alive? => false) }
 
   let(:cells) {
     [
@@ -58,22 +57,20 @@ describe World do
       expect(world.generation).to eq 1
     end
 
-    it "correctly iterates a block" do
-      world = World.new([
-        [dead, dead, dead, dead, dead],
-        [dead, dead, alive, dead, dead],
-        [dead, dead, alive, dead, dead],
-        [dead, dead, alive, dead, dead],
-        [dead, dead, dead, dead, dead],
-      ])
-      expected = [
-        [dead, dead, dead, dead, dead],
-        [dead, dead, dead, dead, dead],
-        [dead, alive, alive, alive, dead],
-        [dead, dead, dead, dead, dead],
-        [dead, dead, dead, dead, dead],
+    it "evolves every cell" do
+      fake_cells = [
+        [double.as_null_object, double.as_null_object],
+        [double.as_null_object, double.as_null_object],
       ]
-      expect(world.next.cells).to eq expected
+
+      world = World.new(fake_cells)
+      world.next
+
+      fake_cells.each do |row|
+        row.each do |cell|
+          expect(cell).to have_received(:evolve)
+        end
+      end
     end
   end
 
