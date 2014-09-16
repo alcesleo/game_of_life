@@ -3,10 +3,10 @@ require './lib/themes/themes'
 
 class ThemedGameOfLifeWindow < GameOfLifeWindow
 
-  def initialize(*args, theme: Theme::Focus)
+  def initialize(game = GameOfLife.new, evolutions_per_second = 10, theme = Theme::Focus)
     @theme = theme
     @colorizer = theme.new
-    super(*args)
+    super(game, evolutions_per_second)
   end
 
   def cell_color(x, y)
