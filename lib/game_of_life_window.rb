@@ -5,7 +5,7 @@ class GameOfLifeWindow < Hasu::Window
 
   attr_reader :game
 
-  def initialize(game = GameOfLife.new, evolutions_per_second: 10)
+  def initialize(game = GameOfLife.new, evolutions_per_second = 10)
     @game      = game
     @cell_size = 10
 
